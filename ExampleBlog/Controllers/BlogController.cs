@@ -20,23 +20,42 @@ namespace ExampleBlog.Controllers
             return View(blogList);
         }
 
-        // GET api/blogs/5
         [HttpGet("{id}")]
-        public Blog Get(int id)
+        public IActionResult GetBlog(int id)
         {
             foreach (Blog b in blogList)
             {
                 if (b.id == id)
                 {
-                    return b;
+                    ViewData["Title"] = b.title;
+                    ViewData["Author"] = b.author;
+                    ViewData["Body"] = b.body;
                 }
                 else
                 {
-                    continue;
+                    ViewData["Doesnotexist"] = id;
                 }
             }
-            return null;
+            return View(blogList);
         }
+
+        // GET api/blogs/5
+        //[HttpGet("{id}")]
+        //public Blog GetBlog(int id)
+        //{
+        //    foreach (Blog b in blogList)
+        //    {
+        //        if (b.id == id)
+        //        {
+        //            return b;
+        //        }
+        //        else
+        //        {
+        //            continue;
+        //        }
+        //    }
+        //    return null;
+        //}
 
         // POST api/values
         [HttpPost]
