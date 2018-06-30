@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "Blog";
+}
+
+<h1>Select a blog</h1>
+
+
+
+@foreach (var item in ViewData["Blogs"] as IEnumerable<ExampleBlog.Models.Blog>)
+{
+    <br />
+    <br />
+    <a href="http://localhost:52702/api/blogs/@item.id">@item.title</a>
+}
