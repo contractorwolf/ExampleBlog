@@ -36,26 +36,8 @@ namespace ExampleBlog.Controllers
                     ViewData["Doesnotexist"] = id;
                 }
             }
-            return View(blogList);
+            return View();
         }
-
-        // GET api/blogs/5
-        //[HttpGet("{id}")]
-        //public Blog GetBlog(int id)
-        //{
-        //    foreach (Blog b in blogList)
-        //    {
-        //        if (b.id == id)
-        //        {
-        //            return b;
-        //        }
-        //        else
-        //        {
-        //            continue;
-        //        }
-        //    }
-        //    return null;
-        //}
 
         // POST api/values
         [HttpPost]
